@@ -3,7 +3,12 @@
   <% @photos.each_slice(5) do |photo_group| %>
     <tr>
       <% photo_group.each do |photo| %>
-        <td><a href=<%= photo_path(photo) %>><img src=<%= photo.url %> width=75 /></a></td>
+        <% if photo.url.match(/\.jpg$/) %>
+          <% thumb_url = photo.url.sub(/\.jpg/, '_thumb.jpg') %>
+        <% else %>
+          <% thumb_url = photo.url %>
+        <% end %>
+        <td><a href=<%= photo_path(photo) %>><img src=<%= thumb_url %> width=75 /></a></td>
       <% end %>
     </tr>
   <% end %>
