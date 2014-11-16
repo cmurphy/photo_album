@@ -8,8 +8,10 @@
   <caption> <%= @photo.caption %> </caption>
 </figure>
 
-<h4>Comments</h4>
-<%= render @photo.comments %>
+<% if @photo.comments.any? %>
+  <h4>Comments</h4>
+  <%= render @photo.comments %>
+<% end %>
 
 <h4>Add a comment:</h4>
 <%= render "comments/form" %>

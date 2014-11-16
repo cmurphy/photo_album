@@ -1,10 +1,10 @@
-<h1>Europe Photos</h1>
-
+<% require 'enumerator' %>
 <table>
-  <% @photos.each do |photo| %>
+  <% @photos.each_slice(5) do |photo_group| %>
     <tr>
-      <td><%= photo.caption %></td>
-      <td><%= link_to 'View', photo_path(photo) %></td>
+      <% photo_group.each do |photo| %>
+        <td><a href=<%= photo_path(photo) %>><img src=<%= photo.url %> width=75 /></a></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
