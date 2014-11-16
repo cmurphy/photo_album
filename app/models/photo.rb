@@ -4,7 +4,7 @@ class Photo < ActiveRecord::Base
   validates :url,  presence: true
 
   def next
-    photo = Photo.find_by_id(id + 1)
+    photo = Photo.where("id > ?", id).first
     if ! photo
       photo = Photo.first
     end
@@ -12,7 +12,7 @@ class Photo < ActiveRecord::Base
   end
 
   def prev
-    photo = Photo.find_by_id(id - 1)
+    photo = Photo.where("id < ?", id).last
     if ! photo
       photo = Photo.last
     end
