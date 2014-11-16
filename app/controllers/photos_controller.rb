@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
+  skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
 
   def new
     @photo = Photo.new
