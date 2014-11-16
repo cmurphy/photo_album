@@ -1,4 +1,10 @@
 <h1>Europe Trip</h1>
 <h2>Edit photo</h2>
 
+<figure>
+  <img src=<%= @photo.url %> width=50% ></img>
+  <br />
+  <caption> <%= @photo.caption %> </caption>
+</figure>
+
 <%= render 'form' %>
