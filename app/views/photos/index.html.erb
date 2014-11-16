@@ -1,6 +1,6 @@
 <% require 'enumerator' %>
 <table>
-  <% @photos.each_slice(5) do |photo_group| %>
+  <% @photos.sort.each_slice(5) do |photo_group| %>
     <tr>
       <% photo_group.each do |photo| %>
         <% if photo.url.match(/\.jpg$/) %>
