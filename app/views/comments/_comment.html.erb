@@ -1,0 +1,12 @@
+<p>
+  <h5>Commenter:</h5>
+  <%= comment.commenter %>
+</p>
+<p>
+  <h5>Comment:</h5>
+  <%= comment.body %>
+</p>
+<p>
+  <%= link_to 'Delete Comment', [comment.photo, comment],
+              method: :delete %>
+</p>

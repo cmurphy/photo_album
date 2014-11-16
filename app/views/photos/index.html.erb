@@ -1,0 +1,10 @@
+<h1>Europe Photos</h1>
+
+<table>
+  <% @photos.each do |photo| %>
+    <tr>
+      <td><%= photo.caption %></td>
+      <td><%= link_to 'View', photo_path(photo) %></td>
+    </tr>
+  <% end %>
+</table>
