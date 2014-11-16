@@ -1,12 +1,12 @@
-<h3>
-  <%= @photo.name %>
-</h3>
-
-<img></img>
-
-<caption>
-  <%= @photo.caption %>
-</caption>
+<%= link_to 'Previous photo', { action: "show", id: @photo.prev.id } %>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to 'Next photo', { action: "show", id: @photo.next.id } %>
+<br />
+<figure>
+  <img src=<%= @photo.url %> width=50% ></img>
+  <br />
+  <caption> <%= @photo.caption %> </caption>
+</figure>
 
 <h4>Comments</h4>
 <%= render @photo.comments %>
